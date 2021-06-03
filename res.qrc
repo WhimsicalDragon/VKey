@@ -1,0 +1,11 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>resources/HeThinkin.jpg</file>
+        <file>resources/KeyboardBig.png</file>
+        <file>resources/MonkeType.png</file>
+        <file>resources/Paul.jpg</file>
+        <file>resources/SelectionSquareBig.png</file>
+        <file>resources/SelectionSquareSpaceBig.png</file>
+        <file>resources/PinkRectangle.png</file>
+    </qresource>
+</RCC>
