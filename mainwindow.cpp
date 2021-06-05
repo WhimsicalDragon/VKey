@@ -74,7 +74,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::updateKey(int key, int state){
     if(state == 1) {
-        QPixmap monkeType ("resources/MonkeType.png");
+        QPixmap monkeType (":/images/resources/MonkeType.png");
         ui->Paul->setPixmap(monkeType);
         foop();
     }
@@ -336,7 +336,7 @@ void MainWindow::updateKey(int key, int state){
 }
 
 void MainWindow::debug(){
-    QPixmap monkeType ("resourrces/HeThinkin.jpg");
+    QPixmap monkeType (":images//resources//HeThinkin.jpg");
     ui->Paul->setPixmap(monkeType);
 
 }

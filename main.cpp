@@ -11,6 +11,8 @@
 #include <thread>
 #include <condition_variable>
 #include <mutex>
+#include <QFile>
+
 
 #define MOD_NOREPEAT 0x4000
 #define MOD_ALT 0x0001
@@ -179,6 +181,8 @@ void paulDone() {//This will require threading
 
 int main(int argc, char *argv[])
 {
+
+
     //a = QApplication(argc, argv);
     //w.setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
     //w.setAttribute(Qt::WA_NoSystemBackground, true);
