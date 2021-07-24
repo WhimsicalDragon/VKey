@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QChar>
+#include <QDesktopWidget>
 #include <iostream>
 #include <windows.h>
 #include <winuser.h>
@@ -13,6 +14,7 @@
 #include <thread>
 #include <condition_variable>
 #include <mutex>
+#include <math.h>
 #pragma comment(lib, "user32.lib")
 
 #define MOD_NOREPEAT 0x4000
@@ -23,7 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
 
-    setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
+    //setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
+    setWindowFlags(Qt::MSWindowsFixedSizeDialogHint);
     setAttribute(Qt::WA_TranslucentBackground, true);
 
     ui->setupUi(this);
@@ -68,9 +71,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
-
-
-
 
 void MainWindow::updateKey(int key, int state){
     if(state == 1) {
@@ -334,6 +334,43 @@ void MainWindow::updateKey(int key, int state){
     //std::future<void> paul = std::async (paulDone,startTime,waiter);
     //printf("Setkey!\n");
 }
+
+void MainWindow::eyeMov(double x,double y) {
+    double h = ui->textBrowser->height();
+    double w = ui->textBrowser->width();
+
+    printf("Eyemov %f %f",x,y);
+
+    double xP = x * sqrt(1-y * y /2.0);
+    double yP = y * sqrt(1-x * x /2.0);
+
+
+
+    double centerW = ui->textBrowser->x() + w/2.0;
+
+
+    xP *= w/4.0;
+    yP *= h/4.0;
+/*
+    xP -= w/5.0;
+    yP -= h/5.0;
+
+    if(xP < 0) {
+        xP += (w/5.0)*3.0;
+    }
+
+    if(yP < 0) {
+        yP += (h/5.0)*3.0;
+    }
+*/
+
+    xP += ui->textBrowser->x() + w/2.0 - ui->Eyes->width()/2.0;
+    yP += ui->textBrowser->y() + h/2.0 - ui->Eyes->height()/2.0;
+
+
+    ui->Eyes->move(xP,yP);
+}
+
 
 void MainWindow::debug(){
     QPixmap monkeType (":images//resources//HeThinkin.jpg");

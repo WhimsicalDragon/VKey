@@ -249,7 +249,9 @@ Makefile: VKey.pro E:/Qt/5.15.2/mingw81_64/mkspecs/win32-g++/qmake.conf E:/Qt/5.
 		E:/Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf \
 		VKey.pro \
 		E:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl \
+		E:/Qt/5.15.2/mingw81_64/lib/Qt5Multimedia.prl \
 		E:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl \
+		E:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl \
 		E:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl \
 		E:/Qt/5.15.2/mingw81_64/lib/qtmain.prl \
 		E:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf \
@@ -434,7 +436,9 @@ E:/Qt/5.15.2/mingw81_64/mkspecs/features/yacc.prf:
 E:/Qt/5.15.2/mingw81_64/mkspecs/features/lex.prf:
 VKey.pro:
 E:/Qt/5.15.2/mingw81_64/lib/Qt5Widgets.prl:
+E:/Qt/5.15.2/mingw81_64/lib/Qt5Multimedia.prl:
 E:/Qt/5.15.2/mingw81_64/lib/Qt5Gui.prl:
+E:/Qt/5.15.2/mingw81_64/lib/Qt5Network.prl:
 E:/Qt/5.15.2/mingw81_64/lib/Qt5Core.prl:
 E:/Qt/5.15.2/mingw81_64/lib/qtmain.prl:
 E:/Qt/5.15.2/mingw81_64/mkspecs/features/build_pass.prf:

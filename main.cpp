@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QTime>
 #include <QChar>
+#include <QDesktopWidget>
 #include <iostream>
 #include <windows.h>
 #include <winuser.h>
@@ -12,6 +13,9 @@
 #include <condition_variable>
 #include <mutex>
 #include <QFile>
+#include <math.h>
+#include <QScreen>
+#include <QAudioInput>
 
 
 #define MOD_NOREPEAT 0x4000
@@ -22,7 +26,16 @@ char *poo[0];
 QApplication a(foo, poo);//This is necessary for some reason
 MainWindow w;
 
-HHOOK hHook = NULL;
+POINT pointer;
+
+//QScreen *screen = QGuiApplication::primaryScreen();
+QScreen *screen = w.screen();
+QRect screenGeometry = screen->geometry();
+const int screenH = screenGeometry.height();
+const int screenW = screenGeometry.width();
+
+HHOOK kHook = NULL;
+HHOOK mHook = NULL;
 
 
 clock_t startTime;
@@ -36,6 +49,27 @@ std::mutex mtx;
 int isWaitDone = 1;
 int foopCallNum = 0;
 //using namespace std;
+
+
+
+LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
+    switch( wParam )
+    {
+      case WM_MOUSEMOVE:  qDebug() << "Mouse moved";
+            GetCursorPos(&pointer);
+            printf("X %d",pointer.x);
+            printf("Y %d",pointer.y);
+            int x = (int)pointer.x;
+            int y = (int)pointer.y;
+
+            mouseTracking(x,y);
+            //w.eyeMov((double)pointer.x,(double)pointer.y);
+    }
+    return CallNextHookEx(mHook, nCode, wParam, lParam);
+}
+
+
+
 
 void UpdateKeyState(BYTE *keystate, int keycode)
 {
@@ -124,7 +158,7 @@ LRESULT CALLBACK MyLowLevelKeyBoardProc(int nCode, WPARAM wParam, LPARAM lParam)
     }
 
 
-    return CallNextHookEx(hHook, nCode, wParam, lParam);
+    return CallNextHookEx(kHook, nCode, wParam, lParam);
 }
 
 
@@ -134,7 +168,6 @@ void foop(){
     foopCallNum++;
     std::thread waiter (waitAndNotify);
     waiter.detach();
-
 
 }
 
@@ -178,29 +211,64 @@ void paulDone() {//This will require threading
     }
 }
 
+void mouseTracking(int x,int y) {
+
+    if(x > screenW){
+        return;
+    }
+
+    if(y > screenH) {
+        return;
+    }
+
+    x = x - screenW/2.0;
+    y = y - screenH/2.0;
+
+    /*if(x < 0) {
+        x += (screenW/2.0)*3.0;
+    }
+
+    if(y < 0) {
+        y += (screenH/2.0)*3.0;
+    }*/
+
+    double xP = x/(double)(screenW);
+    double yP = y/(double)(screenH);
+
+    w.eyeMov(xP,yP);
+
+}
+
 
 int main(int argc, char *argv[])
 {
 
-
-    //a = QApplication(argc, argv);
     //w.setWindowFlags(Qt::FramelessWindowHint|Qt::WindowStaysOnTopHint);
     //w.setAttribute(Qt::WA_NoSystemBackground, true);
     //w.setAttribute(Qt::WA_TranslucentBackground, true);
     w.show();
     //w.updateKey('a');
 
-    hHook = SetWindowsHookEx(WH_KEYBOARD_LL, MyLowLevelKeyBoardProc, NULL, 0);
-    if (hHook == NULL)
+
+    kHook = SetWindowsHookEx(WH_KEYBOARD_LL, MyLowLevelKeyBoardProc, NULL, 0);
+    if (kHook == NULL)
     {
         qDebug() << "Hook Failed" << Qt::endl;
     }
+
+    mHook = SetWindowsHookEx(WH_MOUSE_LL, MouseProc, NULL, 0);
+    if (mHook == NULL)
+    {
+        qDebug() << "Hook Failed" << Qt::endl;
+    }
+
     //std::thread waiter (waitAndNotify);
     //waiter.detach();
     std::thread paul (paulDone);
     paul.detach();
     //w.setAttribute(Qt::WA_NoSystemBackground, true);
     //w.setAttribute(Qt::WA_TranslucentBackground, true);
+
 
 
     return a.exec();

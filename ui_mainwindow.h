@@ -54,17 +54,19 @@ public:
     QLabel *keySpace;
     QLabel *Paul;
     QLabel *keySpace_2;
+    QLabel *Eyes;
+    QLabel *EyeTest;
 
     void setupUi(QMainWindow *MainWindow)
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(816, 207);
+        MainWindow->resize(1009, 408);
         centralwidget = new QWidget(MainWindow);
         centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
         textBrowser = new QTextBrowser(centralwidget);
         textBrowser->setObjectName(QString::fromUtf8("textBrowser"));
-        textBrowser->setGeometry(QRect(0, 0, 256, 192));
+        textBrowser->setGeometry(QRect(10, 10, 256, 256));
         keyboard = new QLabel(centralwidget);
         keyboard->setObjectName(QString::fromUtf8("keyboard"));
         keyboard->setGeometry(QRect(260, 0, 555, 205));
@@ -297,11 +299,12 @@ public:
         Paul = new QLabel(centralwidget);
         Paul->setObjectName(QString::fromUtf8("Paul"));
         Paul->setEnabled(true);
-        Paul->setGeometry(QRect(30, 30, 171, 141));
+        Paul->setGeometry(QRect(520, 220, 170, 170));
         Paul->setCursor(QCursor(Qt::ArrowCursor));
         Paul->setMouseTracking(false);
         Paul->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/Paul.jpg")));
         Paul->setScaledContents(true);
+        Paul->setAlignment(Qt::AlignCenter);
         keySpace_2 = new QLabel(centralwidget);
         keySpace_2->setObjectName(QString::fromUtf8("keySpace_2"));
         keySpace_2->setEnabled(true);
@@ -310,6 +313,24 @@ public:
         keySpace_2->setMouseTracking(false);
         keySpace_2->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/PinkRectangle.png")));
         keySpace_2->setScaledContents(true);
+        Eyes = new QLabel(centralwidget);
+        Eyes->setObjectName(QString::fromUtf8("Eyes"));
+        Eyes->setEnabled(true);
+        Eyes->setGeometry(QRect(10, 10, 256, 256));
+        Eyes->setCursor(QCursor(Qt::ArrowCursor));
+        Eyes->setMouseTracking(false);
+        Eyes->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/Eyes.png")));
+        Eyes->setScaledContents(true);
+        Eyes->setAlignment(Qt::AlignCenter);
+        EyeTest = new QLabel(centralwidget);
+        EyeTest->setObjectName(QString::fromUtf8("EyeTest"));
+        EyeTest->setEnabled(true);
+        EyeTest->setGeometry(QRect(10, 10, 256, 256));
+        EyeTest->setCursor(QCursor(Qt::ArrowCursor));
+        EyeTest->setMouseTracking(false);
+        EyeTest->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/EyeTest.png")));
+        EyeTest->setScaledContents(true);
+        EyeTest->setAlignment(Qt::AlignCenter);
         MainWindow->setCentralWidget(centralwidget);
         keySpace_2->raise();
         textBrowser->raise();
@@ -342,6 +363,8 @@ public:
         keyN->raise();
         keyM->raise();
         keySpace->raise();
+        Eyes->raise();
+        EyeTest->raise();
         Paul->raise();
 
         retranslateUi(MainWindow);
@@ -352,14 +375,12 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
-        textBrowser->setMarkdown(QCoreApplication::translate("MainWindow", "Hi, I'm Paul!\n"
-"\n"
-"", nullptr));
+        textBrowser->setMarkdown(QString());
         textBrowser->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
 "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\" margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\">Hi, I'm Paul!</p></body></html>", nullptr));
+"<p style=\"-qt-paragraph-type:empty; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
         keyboard->setText(QString());
         keyA->setText(QString());
         keyS->setText(QString());
@@ -391,6 +412,8 @@ public:
         keySpace->setText(QString());
         Paul->setText(QString());
         keySpace_2->setText(QString());
+        Eyes->setText(QString());
+        EyeTest->setText(QString());
     } // retranslateUi
 
 };

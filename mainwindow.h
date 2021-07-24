@@ -9,6 +9,7 @@
     void waitAndNotify();
     void paulDone();
     void foop();
+    void mouseTracking(int x, int y);
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -22,6 +23,7 @@ public:
     ~MainWindow();
     void updateKey(int key, int state);
     void debug();
+    void eyeMov(double x,double y);
 private:
     Ui::MainWindow *ui;
 };

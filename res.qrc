@@ -7,5 +7,7 @@
         <file>resources/SelectionSquareBig.png</file>
         <file>resources/SelectionSquareSpaceBig.png</file>
         <file>resources/PinkRectangle.png</file>
+        <file>resources/EyeTest.png</file>
+        <file>resources/Eyes.png</file>
     </qresource>
 </RCC>
