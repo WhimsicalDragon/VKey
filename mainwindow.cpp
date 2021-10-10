@@ -15,6 +15,8 @@
 #include <condition_variable>
 #include <mutex>
 #include <math.h>
+#include <QAudio>
+#include <QAudioInput>
 #pragma comment(lib, "user32.lib")
 
 #define MOD_NOREPEAT 0x4000
@@ -369,7 +371,16 @@ void MainWindow::eyeMov(double x,double y) {
 
 
     ui->Eyes->move(xP,yP);
+
+   // audioTest();
+
 }
+
+
+//void MainWindow::audioTest(){
+//    QIODevice mic = QAudioInput::start();
+//}
+
 
 
 void MainWindow::debug(){

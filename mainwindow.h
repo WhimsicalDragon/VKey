@@ -24,6 +24,7 @@ public:
     void updateKey(int key, int state);
     void debug();
     void eyeMov(double x,double y);
+    void audioTest();
 private:
     Ui::MainWindow *ui;
 };

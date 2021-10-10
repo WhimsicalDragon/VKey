@@ -71,6 +71,8 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
 
 
 
+//TODO: Keymaping instead thread bullshit
+
 void UpdateKeyState(BYTE *keystate, int keycode)
 {
     keystate[keycode] = GetKeyState(keycode);
@@ -221,6 +223,14 @@ void mouseTracking(int x,int y) {
         return;
     }
 
+    if(x < 0) {
+        return;
+    }
+
+    if(y < 0) {
+        return;
+    }
+
     x = x - screenW/2.0;
     y = y - screenH/2.0;
 
@@ -269,7 +279,7 @@ int main(int argc, char *argv[])
     //w.setAttribute(Qt::WA_NoSystemBackground, true);
     //w.setAttribute(Qt::WA_TranslucentBackground, true);
 
-
+    //w.audioTest();
 
     return a.exec();
 }
