@@ -2,7 +2,6 @@
 #include <QApplication>
 #include <QWidget>
 #include <QDebug>
-#include <QTime>
 #include <QChar>
 #include <QDesktopWidget>
 #include <iostream>
@@ -39,16 +38,22 @@ HHOOK mHook = NULL;
 
 
 clock_t startTime;
-std::thread waiter;
 std::thread paul;
+std::thread waiter;
 std::condition_variable waitCV;
 std::condition_variable paulCV;
 std::mutex mtx;
 
+bool newPress = false;
+bool keepChildrenAlive = true; //This var breaks loops for detached children to kill them
 
-int isWaitDone = 1;
+
+boolean isWaitDone = false;
 int foopCallNum = 0;
+
 //using namespace std;
+
+
 
 
 
@@ -57,8 +62,8 @@ LRESULT CALLBACK MouseProc(int nCode, WPARAM wParam, LPARAM lParam) {
     {
       case WM_MOUSEMOVE:  qDebug() << "Mouse moved";
             GetCursorPos(&pointer);
-            printf("X %d",pointer.x);
-            printf("Y %d",pointer.y);
+            //printf("X %d",pointer.x);
+            //printf("Y %d",pointer.y);
             int x = (int)pointer.x;
             int y = (int)pointer.y;
 
@@ -83,7 +88,7 @@ LRESULT CALLBACK MyLowLevelKeyBoardProc(int nCode, WPARAM wParam, LPARAM lParam)
     //WPARAM is WM_KEYDOWn, WM_KEYUP, WM_SYSKEYDOWN, or WM_SYSKEYUP
     //LPARAM is the key information
 
-    qDebug() << "Key Pressed!";
+    //qDebug() << "Key Pressed!";
 
     if (wParam == WM_KEYDOWN)
     {
@@ -119,6 +124,7 @@ LRESULT CALLBACK MyLowLevelKeyBoardProc(int nCode, WPARAM wParam, LPARAM lParam)
         //Print the output
         qDebug() << "Key: " << cKey.vkCode << " " << QString::fromUtf16((ushort*)buffer) << " " << QString::fromUtf16((ushort*)lpszName);
         w.updateKey(cKey.vkCode, 1);
+        newPress = true;
     }
 
 
@@ -157,60 +163,76 @@ LRESULT CALLBACK MyLowLevelKeyBoardProc(int nCode, WPARAM wParam, LPARAM lParam)
         //Print the output
         qDebug() << "Key: " << cKey.vkCode << " " << QString::fromUtf16((ushort*)buffer) << " " << QString::fromUtf16((ushort*)lpszName);
         w.updateKey(cKey.vkCode, 0);
+        startTime = clock();
+        waitCV.notify_all();
     }
 
 
     return CallNextHookEx(kHook, nCode, wParam, lParam);
 }
 
+void killAllChildren() {
 
-void foop(){
-    printf("Yah!");
-    isWaitDone = 0;
-    foopCallNum++;
-    std::thread waiter (waitAndNotify);
-    waiter.detach();
-
-}
-
-void waitAndNotify() {
-    std::unique_lock<std::mutex> lck(mtx);
-    //while(true) {
-        isWaitDone = foopCallNum;
-        //waitCV.wait(lck);
-        Sleep(500);
-        //paulCV.notify_all();
-        printf("Wait done!");
-
-        if(isWaitDone != foopCallNum) {
-            return;
-        }
-
-        isWaitDone = 1;
-        w.debug();
-        foopCallNum = 0;
-
-    //}
-
-
+    qDebug() << "Joining!";
+    qDebug() << "Joined!";
+    //Join all threads if needed with this
 }
 
 
-void paulDone() {//This will require threading
+void typeStatusDelay() { //This child needs to kill itself when the parent is going to die because it is detached.
     std::unique_lock<std::mutex> lck(mtx);
-
-    while(true) {
-        if(startTime != -1) {
-            startTime = -1;
-        }
+    clock_t endTime;
+    int sleepTime = 500;
+    bool debugCall = false;
+    qDebug() << "Thread Started";
+    while(keepChildrenAlive) {
+        debugCall = false;
         waitCV.wait(lck);
-        paulCV.wait(lck);
-
-        if(startTime == -1) {
-            printf("Paul done type!");
-            w.debug();
+        if(w.keyMapState() == true) {
+            qDebug() << "Ending without update because a key is still pressed";
+            continue;
         }
+
+        qDebug() << "Wait Start!";
+        while(!debugCall) {
+
+            Sleep(sleepTime);
+
+            if(w.keyMapState() == true) {
+                qDebug() << "Ending without update because a key is still pressed";
+                break;
+            }
+
+
+            qDebug() << "Wait Done!";
+            endTime = clock();
+
+            double timeDelta = float(endTime - startTime) / CLOCKS_PER_SEC;
+
+            if(timeDelta < 0.55 && timeDelta > 0.45) {
+                w.debug();
+                debugCall = true;
+                sleepTime = 500;
+            } else if(sleepTime < 700) {
+                sleepTime = 500 - timeDelta * 1000.0;
+                qDebug() << "Resleeping for ";
+                qDebug() << sleepTime;
+                qDebug() << "Delta";
+                qDebug() << timeDelta;
+            } else {
+                qDebug() << "Recovered from excessive sleep";
+                w.debug();
+                debugCall = true;
+                sleepTime = 500;
+            }
+        }
+
+
     }
+
+    Sleep(1000);
+    qDebug() << "I'm dead!";
+    return;
 }
 
 void mouseTracking(int x,int y) {
@@ -274,12 +296,14 @@ int main(int argc, char *argv[])
 
     //std::thread waiter (waitAndNotify);
     //waiter.detach();
-    std::thread paul (paulDone);
-    paul.detach();
+    //std::thread paul (paulDone);
+    std::thread waiter(typeStatusDelay);
+    //paul.detach();
+    waiter.detach();
     //w.setAttribute(Qt::WA_NoSystemBackground, true);
     //w.setAttribute(Qt::WA_TranslucentBackground, true);
 
     //w.audioTest();
-
+    //waiter.join();
     return a.exec();
 }

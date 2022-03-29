@@ -69,13 +69,13 @@ public:
         textBrowser->setGeometry(QRect(10, 10, 256, 256));
         keyboard = new QLabel(centralwidget);
         keyboard->setObjectName(QString::fromUtf8("keyboard"));
-        keyboard->setGeometry(QRect(260, 0, 555, 205));
+        keyboard->setGeometry(QRect(294, 0, 555, 205));
         keyboard->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/KeyboardBig.png")));
         keyboard->setScaledContents(true);
         keyA = new QLabel(centralwidget);
         keyA->setObjectName(QString::fromUtf8("keyA"));
         keyA->setEnabled(true);
-        keyA->setGeometry(QRect(285, 50, 55, 55));
+        keyA->setGeometry(QRect(319, 50, 55, 55));
         keyA->setCursor(QCursor(Qt::ArrowCursor));
         keyA->setMouseTracking(false);
         keyA->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -83,7 +83,7 @@ public:
         keyS = new QLabel(centralwidget);
         keyS->setObjectName(QString::fromUtf8("keyS"));
         keyS->setEnabled(true);
-        keyS->setGeometry(QRect(335, 50, 55, 55));
+        keyS->setGeometry(QRect(369, 50, 55, 55));
         keyS->setCursor(QCursor(Qt::ArrowCursor));
         keyS->setMouseTracking(false);
         keyS->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -91,7 +91,7 @@ public:
         keyD = new QLabel(centralwidget);
         keyD->setObjectName(QString::fromUtf8("keyD"));
         keyD->setEnabled(true);
-        keyD->setGeometry(QRect(385, 50, 55, 55));
+        keyD->setGeometry(QRect(419, 50, 55, 55));
         keyD->setCursor(QCursor(Qt::ArrowCursor));
         keyD->setMouseTracking(false);
         keyD->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -99,7 +99,7 @@ public:
         keyF = new QLabel(centralwidget);
         keyF->setObjectName(QString::fromUtf8("keyF"));
         keyF->setEnabled(true);
-        keyF->setGeometry(QRect(435, 50, 55, 55));
+        keyF->setGeometry(QRect(469, 50, 55, 55));
         keyF->setCursor(QCursor(Qt::ArrowCursor));
         keyF->setMouseTracking(false);
         keyF->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -107,7 +107,7 @@ public:
         keyG = new QLabel(centralwidget);
         keyG->setObjectName(QString::fromUtf8("keyG"));
         keyG->setEnabled(true);
-        keyG->setGeometry(QRect(485, 50, 55, 55));
+        keyG->setGeometry(QRect(519, 50, 55, 55));
         keyG->setCursor(QCursor(Qt::ArrowCursor));
         keyG->setMouseTracking(false);
         keyG->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -115,7 +115,7 @@ public:
         keyH = new QLabel(centralwidget);
         keyH->setObjectName(QString::fromUtf8("keyH"));
         keyH->setEnabled(true);
-        keyH->setGeometry(QRect(535, 50, 55, 55));
+        keyH->setGeometry(QRect(569, 50, 55, 55));
         keyH->setCursor(QCursor(Qt::ArrowCursor));
         keyH->setMouseTracking(false);
         keyH->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -123,7 +123,7 @@ public:
         keyJ = new QLabel(centralwidget);
         keyJ->setObjectName(QString::fromUtf8("keyJ"));
         keyJ->setEnabled(true);
-        keyJ->setGeometry(QRect(585, 50, 55, 55));
+        keyJ->setGeometry(QRect(619, 50, 55, 55));
         keyJ->setCursor(QCursor(Qt::ArrowCursor));
         keyJ->setMouseTracking(false);
         keyJ->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -131,7 +131,7 @@ public:
         keyK = new QLabel(centralwidget);
         keyK->setObjectName(QString::fromUtf8("keyK"));
         keyK->setEnabled(true);
-        keyK->setGeometry(QRect(635, 50, 55, 55));
+        keyK->setGeometry(QRect(669, 50, 55, 55));
         keyK->setCursor(QCursor(Qt::ArrowCursor));
         keyK->setMouseTracking(false);
         keyK->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -139,7 +139,7 @@ public:
         keyL = new QLabel(centralwidget);
         keyL->setObjectName(QString::fromUtf8("keyL"));
         keyL->setEnabled(true);
-        keyL->setGeometry(QRect(685, 50, 55, 55));
+        keyL->setGeometry(QRect(719, 50, 55, 55));
         keyL->setCursor(QCursor(Qt::ArrowCursor));
         keyL->setMouseTracking(false);
         keyL->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -147,7 +147,7 @@ public:
         keyQ = new QLabel(centralwidget);
         keyQ->setObjectName(QString::fromUtf8("keyQ"));
         keyQ->setEnabled(true);
-        keyQ->setGeometry(QRect(260, 0, 55, 55));
+        keyQ->setGeometry(QRect(294, 0, 55, 55));
         keyQ->setCursor(QCursor(Qt::ArrowCursor));
         keyQ->setMouseTracking(false);
         keyQ->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -155,7 +155,7 @@ public:
         keyW = new QLabel(centralwidget);
         keyW->setObjectName(QString::fromUtf8("keyW"));
         keyW->setEnabled(true);
-        keyW->setGeometry(QRect(310, 0, 55, 55));
+        keyW->setGeometry(QRect(344, 0, 55, 55));
         keyW->setCursor(QCursor(Qt::ArrowCursor));
         keyW->setMouseTracking(false);
         keyW->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -163,7 +163,7 @@ public:
         keyE = new QLabel(centralwidget);
         keyE->setObjectName(QString::fromUtf8("keyE"));
         keyE->setEnabled(true);
-        keyE->setGeometry(QRect(360, 0, 55, 55));
+        keyE->setGeometry(QRect(394, 0, 55, 55));
         keyE->setCursor(QCursor(Qt::ArrowCursor));
         keyE->setMouseTracking(false);
         keyE->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -171,7 +171,7 @@ public:
         keyR = new QLabel(centralwidget);
         keyR->setObjectName(QString::fromUtf8("keyR"));
         keyR->setEnabled(true);
-        keyR->setGeometry(QRect(410, 0, 55, 55));
+        keyR->setGeometry(QRect(444, 0, 55, 55));
         keyR->setCursor(QCursor(Qt::ArrowCursor));
         keyR->setMouseTracking(false);
         keyR->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -179,7 +179,7 @@ public:
         keyT = new QLabel(centralwidget);
         keyT->setObjectName(QString::fromUtf8("keyT"));
         keyT->setEnabled(true);
-        keyT->setGeometry(QRect(460, 0, 55, 55));
+        keyT->setGeometry(QRect(494, 0, 55, 55));
         keyT->setCursor(QCursor(Qt::ArrowCursor));
         keyT->setMouseTracking(false);
         keyT->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -187,7 +187,7 @@ public:
         keyY = new QLabel(centralwidget);
         keyY->setObjectName(QString::fromUtf8("keyY"));
         keyY->setEnabled(true);
-        keyY->setGeometry(QRect(510, 0, 55, 55));
+        keyY->setGeometry(QRect(544, 0, 55, 55));
         keyY->setCursor(QCursor(Qt::ArrowCursor));
         keyY->setMouseTracking(false);
         keyY->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -195,7 +195,7 @@ public:
         keyU = new QLabel(centralwidget);
         keyU->setObjectName(QString::fromUtf8("keyU"));
         keyU->setEnabled(true);
-        keyU->setGeometry(QRect(560, 0, 55, 55));
+        keyU->setGeometry(QRect(594, 0, 55, 55));
         keyU->setCursor(QCursor(Qt::ArrowCursor));
         keyU->setMouseTracking(false);
         keyU->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -203,7 +203,7 @@ public:
         keyI = new QLabel(centralwidget);
         keyI->setObjectName(QString::fromUtf8("keyI"));
         keyI->setEnabled(true);
-        keyI->setGeometry(QRect(610, 0, 55, 55));
+        keyI->setGeometry(QRect(644, 0, 55, 55));
         keyI->setCursor(QCursor(Qt::ArrowCursor));
         keyI->setMouseTracking(false);
         keyI->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -211,7 +211,7 @@ public:
         keyO = new QLabel(centralwidget);
         keyO->setObjectName(QString::fromUtf8("keyO"));
         keyO->setEnabled(true);
-        keyO->setGeometry(QRect(660, 0, 55, 55));
+        keyO->setGeometry(QRect(694, 0, 55, 55));
         keyO->setCursor(QCursor(Qt::ArrowCursor));
         keyO->setMouseTracking(false);
         keyO->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -219,7 +219,7 @@ public:
         keyP = new QLabel(centralwidget);
         keyP->setObjectName(QString::fromUtf8("keyP"));
         keyP->setEnabled(true);
-        keyP->setGeometry(QRect(710, 0, 55, 55));
+        keyP->setGeometry(QRect(744, 0, 55, 55));
         keyP->setCursor(QCursor(Qt::ArrowCursor));
         keyP->setMouseTracking(false);
         keyP->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -227,7 +227,7 @@ public:
         keyBKSP = new QLabel(centralwidget);
         keyBKSP->setObjectName(QString::fromUtf8("keyBKSP"));
         keyBKSP->setEnabled(true);
-        keyBKSP->setGeometry(QRect(760, 0, 55, 55));
+        keyBKSP->setGeometry(QRect(794, 0, 55, 55));
         keyBKSP->setCursor(QCursor(Qt::ArrowCursor));
         keyBKSP->setMouseTracking(false);
         keyBKSP->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -235,7 +235,7 @@ public:
         keyZ = new QLabel(centralwidget);
         keyZ->setObjectName(QString::fromUtf8("keyZ"));
         keyZ->setEnabled(true);
-        keyZ->setGeometry(QRect(310, 100, 55, 55));
+        keyZ->setGeometry(QRect(344, 100, 55, 55));
         keyZ->setCursor(QCursor(Qt::ArrowCursor));
         keyZ->setMouseTracking(false);
         keyZ->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -243,7 +243,7 @@ public:
         keyX = new QLabel(centralwidget);
         keyX->setObjectName(QString::fromUtf8("keyX"));
         keyX->setEnabled(true);
-        keyX->setGeometry(QRect(360, 100, 55, 55));
+        keyX->setGeometry(QRect(394, 100, 55, 55));
         keyX->setCursor(QCursor(Qt::ArrowCursor));
         keyX->setMouseTracking(false);
         keyX->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -251,7 +251,7 @@ public:
         keyC = new QLabel(centralwidget);
         keyC->setObjectName(QString::fromUtf8("keyC"));
         keyC->setEnabled(true);
-        keyC->setGeometry(QRect(410, 100, 55, 55));
+        keyC->setGeometry(QRect(444, 100, 55, 55));
         keyC->setCursor(QCursor(Qt::ArrowCursor));
         keyC->setMouseTracking(false);
         keyC->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -259,7 +259,7 @@ public:
         keyV = new QLabel(centralwidget);
         keyV->setObjectName(QString::fromUtf8("keyV"));
         keyV->setEnabled(true);
-        keyV->setGeometry(QRect(460, 100, 55, 55));
+        keyV->setGeometry(QRect(494, 100, 55, 55));
         keyV->setCursor(QCursor(Qt::ArrowCursor));
         keyV->setMouseTracking(false);
         keyV->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -267,7 +267,7 @@ public:
         keyB = new QLabel(centralwidget);
         keyB->setObjectName(QString::fromUtf8("keyB"));
         keyB->setEnabled(true);
-        keyB->setGeometry(QRect(510, 100, 55, 55));
+        keyB->setGeometry(QRect(544, 100, 55, 55));
         keyB->setCursor(QCursor(Qt::ArrowCursor));
         keyB->setMouseTracking(false);
         keyB->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -275,7 +275,7 @@ public:
         keyN = new QLabel(centralwidget);
         keyN->setObjectName(QString::fromUtf8("keyN"));
         keyN->setEnabled(true);
-        keyN->setGeometry(QRect(560, 100, 55, 55));
+        keyN->setGeometry(QRect(594, 100, 55, 55));
         keyN->setCursor(QCursor(Qt::ArrowCursor));
         keyN->setMouseTracking(false);
         keyN->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -283,7 +283,7 @@ public:
         keyM = new QLabel(centralwidget);
         keyM->setObjectName(QString::fromUtf8("keyM"));
         keyM->setEnabled(true);
-        keyM->setGeometry(QRect(610, 100, 55, 55));
+        keyM->setGeometry(QRect(644, 100, 55, 55));
         keyM->setCursor(QCursor(Qt::ArrowCursor));
         keyM->setMouseTracking(false);
         keyM->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareBig.png")));
@@ -291,7 +291,7 @@ public:
         keySpace = new QLabel(centralwidget);
         keySpace->setObjectName(QString::fromUtf8("keySpace"));
         keySpace->setEnabled(true);
-        keySpace->setGeometry(QRect(336, 150, 369, 55));
+        keySpace->setGeometry(QRect(370, 150, 369, 55));
         keySpace->setCursor(QCursor(Qt::ArrowCursor));
         keySpace->setMouseTracking(false);
         keySpace->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/SelectionSquareSpaceBig.png")));
@@ -308,7 +308,7 @@ public:
         keySpace_2 = new QLabel(centralwidget);
         keySpace_2->setObjectName(QString::fromUtf8("keySpace_2"));
         keySpace_2->setEnabled(true);
-        keySpace_2->setGeometry(QRect(0, -1, 831, 601));
+        keySpace_2->setGeometry(QRect(-6, -1, 1031, 601));
         keySpace_2->setCursor(QCursor(Qt::ArrowCursor));
         keySpace_2->setMouseTracking(false);
         keySpace_2->setPixmap(QPixmap(QString::fromUtf8(":/images/resources/PinkRectangle.png")));
@@ -377,10 +377,10 @@ public:
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
         textBrowser->setMarkdown(QString());
         textBrowser->setHtml(QCoreApplication::translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
-"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><meta charset=\"utf-8\" /><style type=\"text/css\">\n"
 "p, li { white-space: pre-wrap; }\n"
-"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
-"<p style=\"-qt-paragraph-type:empty; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>", nullptr));
+"</style></head><body style=\" font-family:'Segoe UI'; font-size:9pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:5px; margin-bottom:5px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-family:'MS Shell Dlg 2'; font-size:8.25pt;\"><br /></p></body></html>", nullptr));
         keyboard->setText(QString());
         keyA->setText(QString());
         keyS->setText(QString());

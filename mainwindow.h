@@ -6,10 +6,9 @@
 #include <future>
 
 
-    void waitAndNotify();
-    void paulDone();
-    void foop();
+    void typeStatusDelay();
     void mouseTracking(int x, int y);
+    void killAllChildren(); //Incredibly important function
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -25,8 +24,11 @@ public:
     void debug();
     void eyeMov(double x,double y);
     void audioTest();
+    void closeEvent(QCloseEvent *event);
+    bool keyMapState();
 private:
     Ui::MainWindow *ui;
+    void initKeyMap();
 };
 
 #endif // MAINWINDOW_H
